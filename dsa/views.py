@@ -24,11 +24,11 @@ def index(request):
             file_path = os.path.join(settings.BASE_DIR, 'uploads/article.txt')
             if message:
                 # message = form.cleaned_data['message']
-                with open(file_path, 'w') as file:
+                with open(os.path.join(settings.BASE_DIR, 'uploads/article.txt'), 'w') as file:
                     file.write(message + '\n')
             elif uploaded_file:
                 file_content = uploaded_file.read().decode('utf-8')
-                with open(file_path, 'w') as file:
+                with open(os.path.join(settings.BASE_DIR, 'uploads/article.txt'), 'w') as file:
                     file.write(file_content)
     else:
         form = MessageForm() # Path to your text file
