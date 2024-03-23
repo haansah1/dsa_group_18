@@ -46,11 +46,12 @@ def index(request):
 
     # Find the 100 most common words
     top_words = word_count.most_common(100)
+    name = Name.objects.all()
 
     # Output the top 100 frequent words
     # for word, count in top_words:
     #     print(f"{word}: {count}")
-    context = {"topwords": top_words}
+    context = {"topwords": top_words, "name": name}
     return render(request, "index.html",  context)
 
 

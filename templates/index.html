@@ -13,7 +13,9 @@
     </header>
     <div class="body">
         <div>
-            <p class="info">Enter text here</p>
+            {% for names in name %}
+            <p class="info">Enter {{names}} here</p>
+            {% endfor %}
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="div1">
