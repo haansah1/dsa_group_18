@@ -21,6 +21,7 @@ def index(request):
             # message = form.cleaned_data.get('message', '')
             message = request.POST.get('message')
             uploaded_file = request.FILES.get('file')
+            file_path = os.path.join(settings.BASE_DIR, 'uploads/article.txt')
             if message:
                 # message = form.cleaned_data['message']
                 with open(file_path, 'w') as file:
