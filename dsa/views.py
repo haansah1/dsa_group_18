@@ -3,12 +3,16 @@ from .models import *
 from .forms import *
 from django.urls import path
 import re
+import os
+from django.conf import settings
 from collections import Counter
 # Create your views here.
 
 def index(request):
     if request.method == 'POST':
         form = MessageForm(request.POST, request.FILES)
+        # file_path = os.path.join(settings.BASE_DIR, 'uploads/article.txt')
+        file_path = os.path.join(settings.BASE_DIR, 'uploads/article.txt')
         # message = form.cleaned_data['message']
         # message = request.POST.get('message', '')
         # uploaded_file = request.FILES.get('file')
@@ -19,17 +23,17 @@ def index(request):
             uploaded_file = request.FILES.get('file')
             if message:
                 # message = form.cleaned_data['message']
-                with open('templates/article.txt', 'w') as file:
+                with open(file_path, 'w') as file:
                     file.write(message + '\n')
             elif uploaded_file:
                 file_content = uploaded_file.read().decode('utf-8')
-                with open('templates/article.txt', 'w') as file:
+                with open(file_path, 'w') as file:
                     file.write(file_content)
     else:
-        form = MessageForm()
-    file_path = "templates/article.txt"  # Path to your text file
+        form = MessageForm() # Path to your text file
 
     # Read the text file and count word occurrences
+    file_path = os.path.join(settings.BASE_DIR, 'uploads/article.txt')
     word_count = Counter()
     with open(file_path, 'r') as file:
         for line in file:
