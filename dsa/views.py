@@ -19,11 +19,11 @@ def index(request):
             uploaded_file = request.FILES.get('file')
             if message:
                 # message = form.cleaned_data['message']
-                with open('templates/article.txt', 'a') as file:
+                with open('templates/article.txt', 'w') as file:
                     file.write(message + '\n')
             elif uploaded_file:
                 file_content = uploaded_file.read().decode('utf-8')
-                with open('templates/article.txt', 'a') as file:
+                with open('templates/article.txt', 'w') as file:
                     file.write(file_content)
     else:
         form = MessageForm()
