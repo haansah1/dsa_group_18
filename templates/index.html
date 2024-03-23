@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    <header>
+        <p>dsa group 18</p>
+    </header>
+    <div class="body">
+        <div>
+            <p class="info">Enter text here</p>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="div1">
+                    <textarea name="message" id="" placeholder="Enter text here"></textarea>
+                    <div class="bttn">
+                        <button id="btn1" type="submit">Submit</button>
+                    </div>
+                </div>
+                <div class="div1">
+                    <div class="upload">
+                        <input type="file" name="" id="">
+                        <button type="submit">upload file</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
+    <article>
+        <p class="gen">// <em>Generating 100 most frequent words... <br>Edo aa...</em> </p>
+        {% for word, count in topwords%}
+        <p><em>{{word}}</em> appears {{count}} times</p>
+        {% endfor %}
+    </article>
+</body>
+</html>

@@ -1,0 +1,113 @@
+*{
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    background-color: whitesmoke;
+}
+header{
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+html{
+    scroll-behavior: smooth;
+}
+.body{
+    min-height:40vh;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+}
+form{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    gap:2em;
+}
+
+form .div1{
+    display:flex;
+    align-items: center;
+    gap: 1em;
+}
+.info{
+    padding-bottom: 40px;
+    color: grey;
+}
+
+textarea{
+    width: 60vw;
+    border:none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:3px 3px 10px rgb(128, 128, 128, 0.4);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    
+
+}
+textarea::placeholder{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+#btn1{
+    border:none;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+    width: 70px;
+    transition: all .3s linear;
+    
+
+}
+#btn1:hover{
+    background: black;
+    color:white;
+    transition: all .3s linear;
+    cursor:pointer;
+}
+
+article p{
+    margin: 0px 50px;
+    padding: 10px 0px;
+    color: grey;
+    border-bottom: 1px solid rgb(128, 128, 128, .1);
+}
+.upload{
+    width:100vw;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.upload button{ 
+    border:none;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 15px 50px;
+    background: black;
+    color:white;
+    font-size: 1.0em;
+    font-weight:500;
+    text-transform: uppercase;
+    transition: background .3s linear;
+}
+
+.upload button:hover{
+    background: white;
+    color:black;
+    transition: background .3s linear;
+    cursor:pointer;
+}
+.gen{
+    padding: 30px 0px 20px 0px;
+    text-align: center;
+    border:none;
+}
