@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import *
-from .forms import *
 from django.urls import path
 import re
 import os
@@ -17,19 +16,19 @@ def index(request):
         # message = request.POST.get('message', '')
         # uploaded_file = request.FILES.get('file')
 
-        if form.is_valid():
-            # message = form.cleaned_data.get('message', '')
-            message = request.POST.get('message')
-            uploaded_file = request.FILES.get('file')
-            file_path = os.path.join(settings.BASE_DIR, 'uploads/article.txt')
-            if message:
-                # message = form.cleaned_data['message']
-                with open(os.path.join(settings.BASE_DIR, 'uploads/article.txt'), 'w') as file:
-                    file.write(message + '\n')
-            elif uploaded_file:
-                file_content = uploaded_file.read().decode('utf-8')
-                with open(os.path.join(settings.BASE_DIR, 'uploads/article.txt'), 'w') as file:
-                    file.write(file_content)
+        # if form.is_valid():
+        # message = form.cleaned_data.get('message', '')
+        message = request.POST.get('message')
+        uploaded_file = request.FILES.get('file')
+        file_path = os.path.join(settings.BASE_DIR, 'uploads/article.txt')
+        if message:
+            # message = form.cleaned_data['message']
+            with open(os.path.join(settings.BASE_DIR, 'uploads/article.txt'), 'w') as file:
+                file.write(message + '\n')
+        elif uploaded_file:
+            file_content = uploaded_file.read().decode('utf-8')
+            with open(os.path.join(settings.BASE_DIR, 'uploads/article.txt'), 'w') as file:
+                file.write(file_content)
     else:
         form = MessageForm() # Path to your text file
 
