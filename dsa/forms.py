@@ -1,5 +1,10 @@
 from django import forms
+from .models import *
 
-class MessageForm(forms.Form):
-    message = forms.CharField(widget=forms.Textarea)
-    file = forms.FileField(required=False)
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Textmod
+        fields = ('text',)
+        labels = {
+            'text': '',
+        }
